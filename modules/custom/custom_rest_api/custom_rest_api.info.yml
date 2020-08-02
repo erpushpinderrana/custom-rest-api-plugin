@@ -1,0 +1,8 @@
+name: 'Custom RESTful API Web Services'
+type: module
+description: 'Exposes all Drupal Entities using a single RESTful web API endpoint'
+package: Web services
+core_version_requirement: ^8.7.7 || ^9
+dependencies:
+  - drupal:serialization
+  - drupal:rest
