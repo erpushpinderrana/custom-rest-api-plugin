@@ -79,7 +79,7 @@ http://drupal9-rest-api.lndo.site/api/entity/taxonomy_term/4?_format=json
 http://drupal9-rest-api.lndo.site/api/entity/user/1?_format=json
 ```
 
-**Paragraphs:** Get an User entity.
+**Paragraphs:** Get an Paragraph entity.
 ```
 http://drupal9-rest-api.lndo.site/api/entity/paragraph/1?_format=json
 ```
