@@ -90,7 +90,7 @@ class APIEntityResource extends ResourceBase {
             $entity_data = $this->keyValueResourceResponse($entity);
           }
           else {
-            return new ModifiedResourceResponse("No data", 200);
+            return new ModifiedResourceResponse(t("No data found"), 200);
           }
           break;
 
@@ -102,7 +102,7 @@ class APIEntityResource extends ResourceBase {
             $entity_data = $this->keyValueResourceResponse($entity);
           }
           else {
-            return new ModifiedResourceResponse("No data", 200);
+            return new ModifiedResourceResponse(t("No data found"), 200);
           }
           break;
 
@@ -110,10 +110,16 @@ class APIEntityResource extends ResourceBase {
           throw new BadRequestHttpException(t('Not valid parameters.'));
       }
 
-      return new ModifiedResourceResponse($entity_data, 200);
+      if (!empty($entity_data)) {
+        return new ModifiedResourceResponse($entity_data, 200);
+      }
+      else {
+        return new ModifiedResourceResponse(t("No data found"), 200);
+      }
+
     }
     catch (EntityStorageException $e) {
-      throw new HttpException(500, 'Internal Server Error', $e);
+      throw new HttpException(500, t('Internal Server Error'), $e);
     }
   }
 
@@ -126,15 +132,26 @@ class APIEntityResource extends ResourceBase {
     if (!empty($bundle)) {
       $field_definitions = $entity->getFieldDefinitions();
 
-      // @todo Use "Manage Display" to corresponding entity to decide fields
+      $view_mode = 'default';
+      $entityType = $entity->getEntityTypeId();
+      $storage_id = $entityType . '.' . $entity->bundle() . '.' . $view_mode;
+
+      $display = $this->entityTypeManager
+        ->getStorage('entity_view_display')
+        ->load($storage_id);
+      $display_fields = $display->get('content');
+
       // Remove unwanted field that we don't want to display.
-      $allowed_fields = '/(title|name|body|description|field_*)/';
-      $entity_array = $entity->toArray();
+      $allowed_fields = '/(title|name|body|description|_picture|field_*)/';
+
       // Filter array to get only required fields.
-      $fields = preg_grep($allowed_fields, array_keys($entity_array));
+      $fields = preg_grep($allowed_fields, array_keys($display_fields));
+
+      // Get the final fields definition to work further.
       $fields_definition = array_intersect_key($field_definitions, array_flip($fields));
+
       // Pass the allowed field definitions along with entity.
-      $entity_output = $this->convertEntityToKeyValue($entity, $fields_definition);
+      $entity_output = $this->convertEntityToKeyValue($entity, $fields_definition, $view_mode);
     }
     return $entity_output;
   }
@@ -146,18 +163,24 @@ class APIEntityResource extends ResourceBase {
    *   Entity specific to given content.
    * @param mixed $fields_definition
    *   Field definition of the content fields.
+   * @param mixed $view_mode
+   *   Display type of entity.
    *
    * @return mixed
    *   Return entity content.
    */
-  private function convertEntityToKeyValue($entity, $fields_definition) {
+  private function convertEntityToKeyValue($entity, $fields_definition, $view_mode) {
     $field_data = [];
 
-    // @todo Use "Manage Display" with field formatter to give flexible key name.
-
     if (!empty($fields_definition)) {
-      foreach ($fields_definition as $key => $field) {
-        $field_data[$key] = $this->convertFieldToKeyValue($field, $key, $entity);
+      foreach ($fields_definition as $field_name => $field) {
+        if (isset($entity->get($field_name)->view($view_mode)['#key'])) {
+          $key = $entity->get($field_name)->view($view_mode)['#key'];
+          $field_data[$key] = $entity->get($field_name)->view($view_mode)['#value'];
+        }
+        else {
+          $field_data[$field_name] = $this->convertFieldToKeyValue($field, $field_name, $entity);
+        }
       }
     }
     return $field_data;
