@@ -7,13 +7,13 @@ Recently, I was preparing for a demo and came across a scenario where I needed t
 # Solution
 Out of the above mentioned three modules, I found REST module is more flexible to achieve custom JSON output. Hence, I created a custom module i.e. custom_rest_api to expose an entity API. Now, this entity can be any Drupal entity such as Node, Taxonomy Term, User, or Paragraphs.  The API path is /api/entity/{entity_type}/{entity_id}?_format=json
 
-Moreover, I have added the latest Drupal vanilla setup using [Lando] (https://docs.lando.dev/config/drupal9.html#getting-started) so that anyone can pull this repository and use it immediately.
+Moreover, I have added the latest Drupal vanilla setup using [Lando](https://docs.lando.dev/config/drupal9.html#getting-started) so that anyone can pull this repository and use it immediately.
 
 # Let's start and follow the below steps to set it up using lando.
 
 ## Prerequisites
 
-[Lando] (https://docs.lando.dev/config/drupal9.html#getting-started)
+Install [Lando](https://docs.lando.dev/config/drupal9.html#getting-started)
 
 ## Quick Setup
 1. Clone this repository and run the below command when you are in the `custom-rest-api-plugin` directory.
