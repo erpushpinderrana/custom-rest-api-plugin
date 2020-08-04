@@ -169,7 +169,7 @@ class APIEntityResource extends ResourceBase {
    * @return mixed
    *   Return entity content.
    */
-  private function convertEntityToKeyValue($entity, $fields_definition, $view_mode) {
+  public function convertEntityToKeyValue($entity, $fields_definition, $view_mode) {
     $field_data = [];
 
     if (!empty($fields_definition)) {
@@ -199,7 +199,7 @@ class APIEntityResource extends ResourceBase {
    * @return mixed
    *   Return entity content.
    */
-  private function convertFieldToKeyValue($field, $field_name, $entity) {
+  public function convertFieldToKeyValue($field, $field_name, $entity) {
     $field_data = [];
     if (!empty($entity->get($field_name)->getIterator())) {
       switch ($field->getType()) {
