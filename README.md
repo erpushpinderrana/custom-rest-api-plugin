@@ -74,7 +74,7 @@ http://drupal9-rest-api.lndo.site/api/entity/node/43?_format=json
 http://drupal9-rest-api.lndo.site/api/entity/taxonomy_term/4?_format=json
 ```
 
-**User:** Get an User entity.
+**User:** Get a User entity.
 ```
 http://drupal9-rest-api.lndo.site/api/entity/user/1?_format=json
 ```
