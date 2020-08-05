@@ -90,7 +90,7 @@ class APIEntityResource extends ResourceBase {
             $entity_data = $this->keyValueResourceResponse($entity);
           }
           else {
-            return new ModifiedResourceResponse(t("No data found"), 200);
+            return new ModifiedResourceResponse($this->t("No data found"), 200);
           }
           break;
 
@@ -102,24 +102,24 @@ class APIEntityResource extends ResourceBase {
             $entity_data = $this->keyValueResourceResponse($entity);
           }
           else {
-            return new ModifiedResourceResponse(t("No data found"), 200);
+            return new ModifiedResourceResponse($this->t("No data found"), 200);
           }
           break;
 
         default:
-          throw new BadRequestHttpException(t('Not valid parameters.'));
+          throw new BadRequestHttpException($this->t('Not valid parameters.'));
       }
 
       if (!empty($entity_data)) {
         return new ModifiedResourceResponse($entity_data, 200);
       }
       else {
-        return new ModifiedResourceResponse(t("No data found"), 200);
+        return new ModifiedResourceResponse($this->t("No data found"), 200);
       }
 
     }
     catch (EntityStorageException $e) {
-      throw new HttpException(500, t('Internal Server Error'), $e);
+      throw new HttpException(500, $this->t('Internal Server Error'), $e);
     }
   }
 
