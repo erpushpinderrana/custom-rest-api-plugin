@@ -4,6 +4,7 @@ namespace Drupal\custom_rest_api\Plugin\Field\FieldFormatter;
 
 use Drupal\Core\Field\FormatterBase;
 use Drupal\Core\Field\FieldItemListInterface;
+use Drupal\custom_rest_api\Plugin\rest\resource\APIEntityResourceTrait;
 
 /**
  * Restful Custom Text formatter.
@@ -23,6 +24,8 @@ use Drupal\Core\Field\FieldItemListInterface;
  * )
  */
 class RestfulTextFormatter extends FormatterBase {
+
+  use APIEntityResourceTrait;
 
   /**
    * {@inheritdoc}
