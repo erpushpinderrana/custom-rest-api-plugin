@@ -65,13 +65,21 @@ lando info
 ## Entity API Usages
 
 **Node:** Get a node entity.
-```http://drupal9-rest-api.lndo.site/api/entity/node/43?_format=json```
+```
+http://drupal9-rest-api.lndo.site/api/entity/node/43?_format=json
+```
 
 **Taxonomy:** Get a taxonomy term entity.
-```http://drupal9-rest-api.lndo.site/api/entity/taxonomy_term/4?_format=json```
+```
+http://drupal9-rest-api.lndo.site/api/entity/taxonomy_term/4?_format=json
+```
 
-**User:** Get an User entity.
-```http://drupal9-rest-api.lndo.site/api/entity/user/1?_format=json```
+**User:** Get a User entity.
+```
+http://drupal9-rest-api.lndo.site/api/entity/user/1?_format=json
+```
 
-**Paragraphs:** Get an User entity.
-```http://drupal9-rest-api.lndo.site/api/entity/paragraph/1?_format=json```
+**Paragraphs:** Get a Paragraph entity.
+```
+http://drupal9-rest-api.lndo.site/api/entity/paragraph/1?_format=json
+```
