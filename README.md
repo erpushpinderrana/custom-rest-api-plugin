@@ -89,28 +89,28 @@ http://drupal9-rest-api.lndo.site/api/entity/paragraph/1?_format=json
 
 ## Example: Drupal Entity Manage Display Configurations
 
-Configure Restful formatter with Article Entity Content Type
+Configure Restful formatter with **Article Entity Content Type**
 ![Article Entity Restful formatter](https://github.com/erpushpinderrana/files/blob/master/Restful%20Formatters.png)
 
-Node Entity JSON Output
+**Node Entity** JSON Output
 ![Article Entity API JSON](https://github.com/erpushpinderrana/files/blob/master/Node_JSON_with_Paragraph.png)
 
-Configure Restful formatter with Tags Entity Taxonomy
+Configure Restful formatter with **Tags Entity Taxonomy**
 ![Tags Entity Restful formatter](https://github.com/erpushpinderrana/files/blob/master/Taxonomy%20Restful%20Formatters.png)
 
-Taxonomy Entity JSON Output
+**Taxonomy Entity** JSON Output
 ![Tags Entity API JSON](https://github.com/erpushpinderrana/files/blob/master/Taxonomy%20Entity%20JSON%20without%20Restful%20Formatters.png)
 
-Configure Restful formatter with User Entity
+Configure Restful formatter with **User Entity**
 ![User Entity Restful formatter](https://github.com/erpushpinderrana/files/blob/master/User%20Entity%20Restful%20Formatters.png)
 
-User Entity JSON Output
+**User Entity** JSON Output
 ![User Entity API JSON](https://github.com/erpushpinderrana/files/blob/master/User%20Entity%20JSON%20Response.png)
 
-Configure Restful formatter with Paragraph Entity
+Configure Restful formatter with **Paragraph Entity**
 ![Paragraph Entity Restful formatter](https://github.com/erpushpinderrana/files/blob/master/Paragraphs%20Restful%20Formatters.png)
 
-Paragraph Entity JSON Output
+**Paragraph Entity** JSON Output
 ![Paragraph Entity API JSON](https://github.com/erpushpinderrana/files/blob/master/Paragraph%20Entity%20JSON.png)
 
 
