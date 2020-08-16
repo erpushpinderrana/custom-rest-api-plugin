@@ -7,8 +7,9 @@ Recently, I was preparing for a demo and came across a scenario where I needed t
 # Solution
 Out of the above mentioned three modules, I found REST module is more flexible to achieve custom API endpoint and JSON output. Hence, I created a custom module i.e. `custom_rest_api` to expose an entity API. Now, this entity can be any Drupal entity such as Node, Taxonomy Term, User, or Paragraphs.  The API path is 
 ```
-/api/entity/{entity_type}/{entity_id}?_format=json
+/api/entity/{type}/{id}?_format=json
 ```
+![Rest Resource](https://github.com/erpushpinderrana/files/blob/master/REST%20Resource.png)
 
 Moreover, I have added the latest Drupal vanilla setup using [Lando](https://docs.lando.dev/config/drupal9.html#getting-started) so that anyone can pull this repository and use it immediately.
 
@@ -63,7 +64,9 @@ lando info
     hostnames: [ 'database.drupal9restapi.internal' ] } ]
 ```
 5. Access the site using any of the above URL and setup the Drupal locally. It will ask for the database credentials that you can get from the above info. For example: I use it using `http://drupal9-rest-api.lndo.site` URL.
-6. Enable `Custom RESTful API Web Services` module and `Custom Entity REST API Resource` using `http://drupal9-rest-api.lndo.site/admin/config/services/rest`. Now you may generate sample content using Devel generate module to check the API.
+6. Enable `Custom RESTful API Web Services` module and `Custom Entity REST API Resource` using `http://drupal9-rest-api.lndo.site/admin/config/services/rest`. 
+![Rest Resource](https://github.com/erpushpinderrana/files/blob/master/REST%20Resource.png)
+Now you may generate sample content using Devel generate module to check the API.
 
 ## Entity API Usages
 
